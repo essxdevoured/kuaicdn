@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Download Your File</h1>
+        <form action="/download" method="GET">
+            <label for="link">Enter your download link:</label>
+            <input type="text" id="link" name="link" required>
+            <label for="password">Enter password (if set):</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Download</button>
+        </form>
+        <% if (error) { %>
+            <div class="error"><%= error %></div>
+        <% } %>
+        <% if (file) { %>
+            <div class="success">
+                <p>Your file is ready for download:</p>
+                <a href="<%= file.downloadLink %>">Download File</a>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
